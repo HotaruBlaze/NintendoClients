@@ -45,7 +45,7 @@ Provides a client and server for the `FriendsProtocolV1` and `FriendsProtocolV2`
 <code>**class** [PrincipalRequestBlockSetting](#principalrequestblocksetting)([Data](common.md))</code><br>
 
 ## FriendsClientV1
-<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>
+<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>
 <span class="docs">Creates a new [`FriendsClientV1`](#friendsclientv1).</span>
 
 <code>**async def update_profile**(profile_data: [MyProfile](#myprofile)) -> None</code><br>
@@ -127,7 +127,7 @@ Provides a client and server for the `FriendsProtocolV1` and `FriendsProtocolV2`
 <span class="docs">Calls method `26` on the server.</span>
 
 ## FriendsClientV2
-<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>
+<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>
 <span class="docs">Creates a new [`FriendsClientV2`](#friendsclientv2).</span>
 
 <code>**async def update_and_get_all_information**(nna_info: [NNAInfo](#nnainfo), presence: [NintendoPresenceV2](#nintendopresencev2), birthday: [DateTime](common.md#datetime)) -> [RMCResponse](common.md)</code><br>

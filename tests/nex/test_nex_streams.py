@@ -7,10 +7,6 @@ class TestStreamOut:
 		stream = streams.StreamOut(settings.default())
 		stream.pid(12345)
 		assert stream.get() == bytes.fromhex("39300000")
-		
-		stream = streams.StreamOut(settings.load("switch"))
-		stream.pid(12345)
-		assert stream.get() == bytes.fromhex("3930000000000000")
 	
 	def test_result(self):
 		stream = streams.StreamOut(settings.default())
@@ -56,19 +52,11 @@ class TestStreamOut:
 		stream = streams.StreamOut(settings.default())
 		stream.add(common.ResultRange())
 		assert stream.get() == bytes.fromhex("000000000a000000")
-		
-		stream = streams.StreamOut(settings.load("switch"))
-		stream.add(common.ResultRange())
-		assert stream.get() == bytes.fromhex("0008000000000000000a000000")
 	
 	def test_anydata(self):
 		stream = streams.StreamOut(settings.default())
 		stream.anydata(common.NullData())
 		assert stream.get() == b"\x09\0NullData\0\x04\0\0\0\0\0\0\0"
-		
-		stream = streams.StreamOut(settings.load("switch"))
-		stream.anydata(common.NullData())
-		assert stream.get() == b"\x09\0NullData\0\x0E\0\0\0\x0A\0\0\0\0\0\0\0\0\0\0\0\0\0"
 	
 	def test_variant(self):
 		stream = streams.StreamOut(settings.default())
@@ -105,11 +93,6 @@ class TestStreamIn:
 	def test_pid(self):
 		data = bytes.fromhex("39300000")
 		stream = streams.StreamIn(data, settings.default())
-		assert stream.pid() == 12345
-		assert stream.eof()
-		
-		data = bytes.fromhex("3930000000000000")
-		stream = streams.StreamIn(data, settings.load("switch"))
 		assert stream.pid() == 12345
 		assert stream.eof()
 	
@@ -196,20 +179,9 @@ class TestStreamIn:
 		assert rr.offset == 0
 		assert rr.size == 10
 		
-		data = b"\0\x08\0\0\0\0\0\0\0\x0a\0\0\0"
-		stream = streams.StreamIn(data, settings.load("switch"))
-		rr = stream.extract(common.ResultRange)
-		assert rr.offset == 0
-		assert rr.size == 10
-		
 	def test_anydata(self):
 		data = b"\x09\0NullData\0\x04\0\0\0\0\0\0\0"
 		stream = streams.StreamIn(data, settings.default())
-		assert isinstance(stream.anydata(), common.NullData)
-		assert stream.eof()
-		
-		data = b"\x09\0NullData\0\x0E\0\0\0\x0A\0\0\0\0\0\0\0\0\0\0\0\0\0"
-		stream = streams.StreamIn(data, settings.load("switch"))
 		assert isinstance(stream.anydata(), common.NullData)
 		assert stream.eof()
 	

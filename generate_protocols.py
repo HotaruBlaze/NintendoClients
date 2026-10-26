@@ -1320,7 +1320,7 @@ class DocsGenerator:
 	def generate_client(self, proto):
 		name = make_class_name(proto.name, "Client")
 		self.text += "## %s\n" %name
-		self.text += "<code>**def _\\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>\n"
+		self.text += "<code>**def _\\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>\n"
 		self.text += '<span class="docs">Creates a new [`%s`](#%s).</span>\n\n' %(name, name.lower())
 		
 		for method in proto.methods.values():

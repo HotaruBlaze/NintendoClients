@@ -1,5 +1,0 @@
-
-protocol Screening : 124 {
-    method report_data_store_content;
-    method report_user;
-}

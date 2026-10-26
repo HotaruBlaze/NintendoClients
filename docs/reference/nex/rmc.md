@@ -1,7 +1,7 @@
 
 # Module: <code>nintendo.nex.rmc</code>
 
-Provides a client and server for the RMC protocol. An alternative client that calls remote methods through HTTP can be found in the [`nintendo.nex.hpp`](hpp.md) module.
+Provides a client and server for the RMC protocol.
 
 <code>**class** RMCResponse</code><br>
 <span class="docs">Generic response object that is returned when a remote method returns multiple values. The attributes depend on the method.</span>

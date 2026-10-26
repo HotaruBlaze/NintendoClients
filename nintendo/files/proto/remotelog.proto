@@ -1,4 +1,0 @@
-
-protocol RemoteLogDevice : 1 {
-	method log(string message) {}
-}

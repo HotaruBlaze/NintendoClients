@@ -12,7 +12,7 @@ Provides a client and server for the `NotificationProtocol`. This page was gener
 <code>**class** [NotificationEvent](#notificationevent)([Structure](common.md))</code><br>
 
 ## NotificationClient
-<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>
+<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>
 <span class="docs">Creates a new [`NotificationClient`](#notificationclient).</span>
 
 <code>**async def process_notification_event**(event: [NotificationEvent](notification.md#notificationevent)) -> None</code><br>

@@ -38,20 +38,6 @@ async def test_v1():
 
 
 @pytest.mark.anyio
-async def test_lite():
-	s = settings.load("switch")
-	
-	async def handler(client):
-		assert await client.recv() == b"ping"
-		await client.send(b"pong")
-	
-	async with prudp.serve(handler, s, HOST, 12345):
-		async with prudp.connect(s, HOST, 12345) as client:
-			await client.send(b"ping")
-			assert await client.recv() == b"pong"
-
-
-@pytest.mark.anyio
 async def test_v0_alt():
 	s = settings.load("3ds")
 	s["prudp_v0.signature_version"] = 1

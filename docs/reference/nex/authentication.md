@@ -21,7 +21,7 @@ Provides a client and server for the `AuthenticationProtocol` and `Authenticatio
 <code>**class** [ValidateAndRequestTicketResult](#validateandrequestticketresult)([Structure](common.md))</code><br>
 
 ## AuthenticationClient
-<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>
+<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>
 <span class="docs">Creates a new [`AuthenticationClient`](#authenticationclient).</span>
 
 <code>**async def login**(username: str) -> [RMCResponse](common.md)</code><br>
@@ -71,7 +71,7 @@ Provides a client and server for the `AuthenticationProtocol` and `Authenticatio
 </span>
 
 ## AuthenticationClientNX
-<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient) / [HppClient](hpp.md#hppclient))</code><br>
+<code>**def _\_init__**(client: [RMCClient](rmc.md#rmcclient))</code><br>
 <span class="docs">Creates a new [`AuthenticationClientNX`](#authenticationclientnx).</span>
 
 <code>**async def validate_and_request_ticket**(username: str) -> [RMCResponse](common.md)</code><br>

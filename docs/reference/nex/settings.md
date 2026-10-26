@@ -14,8 +14,7 @@ Defines settings for `nex` classes.
 <span class="docs">
 `- 3ds`: provides reasonable defaults for 3DS applications.<br>
 `- default`: provides reasonable defaults for Wii U applications.<br>
-`- friends`: provides reasonable defaults for the 3DS / Wii U friend server.<br>
-`- switch`: provides reasonable defaults for Switch applications.
+`- friends`: provides reasonable defaults for the 3DS / Wii U friend server.
 </span></span>
 
 ## Settings

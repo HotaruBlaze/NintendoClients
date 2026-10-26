@@ -1,6 +1,6 @@
 
 from nintendo.nex import backend, rmc, common, authentication, \
-	kerberos, account, settings
+	kerberos, friends, settings
 import pytest
 
 
@@ -47,10 +47,9 @@ class AuthenticationServer(authentication.AuthenticationServer):
 		return response
 		
 		
-class AccountManagementServer(account.AccountServer):
-	async def get_name(self, client, pid):
-		assert pid == 1000
-		return "test"
+class FriendsServer(friends.FriendsServerV1):
+	async def update_comment(self, client, comment):
+		assert comment == "Hello World"
 
 
 @pytest.mark.anyio
@@ -58,10 +57,10 @@ async def test_backend():
 	s = settings.default()
 	
 	auth_servers = [AuthenticationServer(s)]
-	secure_servers = [AccountManagementServer()]
+	secure_servers = [FriendsServer()]
 	async with rmc.serve(s, auth_servers, HOST, 12345):
 		async with rmc.serve(s, secure_servers, HOST, 12346, key=b"testkey"):
 			async with backend.connect(s, HOST, 12345) as client:
 				async with client.login("username", "password") as secure_client:
-					act = account.AccountClient(secure_client)
-					assert await act.get_name(1000) == "test"
+					fc = friends.FriendsClientV1(secure_client)
+					await fc.update_comment("Hello World")

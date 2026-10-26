@@ -14,7 +14,7 @@ setuptools.setup(
 	url = "https://github.com/kinnay/NintendoClients",
 	license = "MIT",
 	packages = [
-		"nintendo", "nintendo.nex", "nintendo.switch"
+		"nintendo", "nintendo.nex"
 	],
 	package_data = {
 		"nintendo": ["files/config/*", "files/cert/*"]
